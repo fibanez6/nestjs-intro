@@ -19,7 +19,7 @@ export class ArticlesService {
     }
 
     async getArticles() {
-        const articles = await this.articleModel.find().exec();
+        const articles = await this.articleModel.find();
         return articles.map((art) => ({
             id: art.id,
             name: art.name,
@@ -54,7 +54,7 @@ export class ArticlesService {
 
     async deleteArticle(id: string): Promise<void> {
         try {
-            await this.articleModel.findByIdAndDelete(id).exec();
+            await this.articleModel.findByIdAndDelete(id);
         } catch (error) {
             throw new NotFoundException('Could not find article');
         }
@@ -63,7 +63,7 @@ export class ArticlesService {
     private async findArticle(id: string): Promise<Article> {
         let article;
         try {
-            article = await this.articleModel.findById(id).exec();
+            article = await this.articleModel.findById(id);
         } catch (error) {
             throw new NotFoundException('Could not find article');
         }
