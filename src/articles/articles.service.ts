@@ -9,13 +9,23 @@ export class ArticlesService {
     constructor(@InjectModel('Article') private readonly articleModel: Model<Article>) { };
 
     async insertArticle(name: string, desc: string, price: number): Promise<string> {
-        const newArticle = new this.articleModel({
+        const newArticle = await this.articleModel.create({
             name,
             description: desc,
             price
-        });
-        const result = await newArticle.save(); // returns a promise
-        return result.id as string; // this also return a promise
+        })
+
+        // ****************************************************************************
+        // ** Other way to create an Article, but I dunno how to mock teh constructor *
+        // ****************************************************************************
+        // const newArticle = new this.articleModel({
+        //     name,
+        //     description: desc,
+        //     price
+        // });
+        // const result = await newArticle.save(); // returns a promise
+        // return result.id as string; // this also return a promise
+        return newArticle.id as string; // this also return a promise
     }
 
     async getArticles() {
@@ -30,6 +40,7 @@ export class ArticlesService {
 
     async getArticle(id: string) {
         const article = await this.findArticle(id);
+        console.log(article)
         return {
             id: article.id,
             name: article.name,

@@ -30,32 +30,41 @@
 
 Basic Rest CRUD API examples:
 
-```bash
+### HELLO WORLD
+> * GET
+>   * **/**: 'Hello world' in plain text
+>   * **/json**: 'Hello world' in json
 
-# HELLO WORLD
+### [PRODUCT API - MEMORY](src/products/product.model.ts)
+> * POST 
+>   * **/products**: Create a new product
+>     * Body:
+>       * **title**: String (required): The title of the product
+>       * **description**: String (required): The description of the product
+>       * **price**: Number (required): The price of the product
+> * GET
+>   * **/products**: Fetch all products
+>   * **/products/:id**: Fetch a single product
+> * PATCH
+>   * **/products/:id**: Update a single product
+> * DELETE
+>   * **/products/:id**: Delete a single product
 
-AppController {/}
-Mapped {/, GET} route 
-Mapped {/json, GET} route 
+### [ARTICLE API - MONGODB](src/articles/article.model.ts)
 
-# PRODUCT API - MEMORY
-
-ProductsController {/products}
-Mapped {/products, POST} route 
-Mapped {/products, GET} route 
-Mapped {/products/:id, GET} route 
-Mapped {/products/:id, PATCH} route 
-Mapped {/products/:id, DELETE} route 
-
-# ARTICLE API - MONGODB 
-
-ArticlesController {/articles}
-Mapped {/articles, POST} route
-Mapped {/articles, GET} route
-Mapped {/articles/:id, GET} route
-Mapped {/articles/:id, PATCH} route
-Mapped {/articles/:id, DELETE} route
-```
+> * POST 
+>   * **/articles**: Create a new article
+>     * Body:
+>       * **name**: String (required): The name of the article
+>       * **description**: String( required): The description of the article
+>       * **price**: Number (required): The price of the article
+> * GET
+>   * **/articles**: Fetch all articles
+>   * **/articles/:id**: Fetch a single article
+> * PATCH
+>   * **/articles/:id**: Update a single article
+> * DELETE
+>   * **/articles/:id**: Delete a single article
 
 ## Installation
 
