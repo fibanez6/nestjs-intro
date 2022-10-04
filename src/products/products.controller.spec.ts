@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 describe('ProductsController', () => {
   let controller: ProductsController;
 
-  // NOTE: Product Methods dont contain async before function name (Articles methods have), 
+  // NOTE: Product Methods dont contain 'async' before the function name (Articles methods have), 
   // so you dont need to use resolvers 
   const mockProductsService = {
     insertProduct: jest.fn().mockImplementation(() => uuidv4())
