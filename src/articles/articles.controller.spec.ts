@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 describe('ArticlesController', () => {
   let controller: ArticlesController;
 
+  // NOTE: Articles Methods contain async before function name (Article methods dont have), 
+  // so you need to use resolvers 
   const mockArticlesService = {
     insertArticle: jest.fn().mockResolvedValueOnce(uuidv4())
   };
