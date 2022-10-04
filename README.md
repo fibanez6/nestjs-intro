@@ -35,7 +35,7 @@ Basic Rest CRUD API examples:
 >   * **/**: 'Hello world' in plain text
 >   * **/json**: 'Hello world' in json
 
-### [PRODUCT API - MEMORY](src/products/product.model.ts)
+### [PRODUCT API - IN MEMORY](src/products/product.model.ts)
 > * POST 
 >   * **/products**: Create a new product
 >     * Body:
